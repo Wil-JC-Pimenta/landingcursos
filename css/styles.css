@@ -1,10 +1,10 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', Arial, sans-serif;
     margin: 0;
     padding: 0;
     padding-top: 10%;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: #000;
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .container {
@@ -14,8 +14,8 @@ body {
 }
 
 header {
-    background: #35424a;
-    color: #ffffff;
+    background: rgba(53, 66, 74, 0.7);
+    color: rgba(255, 255, 255, 0.8);
     padding: 10px 0;
     text-align: center;
 }
@@ -28,18 +28,21 @@ header h1 {
     text-align: center;
     margin: 20px 0;
     font-size: 1.2em;
+    color: rgba(30, 255, 0, 0.8);
+    box-shadow: #00000082;
 }
 
 .section {
-    background: #ffffff;
+    background: none;
     margin: 20px 0;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: rgba(0, 255, 8, 0.489);
 }
 
 .section h2 {
-    color: #35424a;
+    color: rgba(4, 212, 39, 0.692);
 }
 
 .cta {
@@ -48,8 +51,8 @@ header h1 {
 }
 
 .cta button {
-    background: #e8491d;
-    color: #ffffff;
+    background: #15ff00d3;
+    color: rgba(255, 255, 255, 0.8);
     border: none;
     padding: 15px 30px;
     font-size: 1.2em;

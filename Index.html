@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Torne-se um Especialista em Programação</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="js/background.js" defer></script>
 </head>
-<body>
+<body id="canvas">
+    
     <header>
         <h1>Torne-se um Especialista em Programação</h1>
     </header>
@@ -20,11 +23,12 @@
             <h2>Cursos Abrangentes para Todos os Níveis</h2>
             <p>
                 Nossos cursos de programação são projetados para atender a todos os níveis de habilidade, desde iniciantes até programadores avançados. <br>
-                Aprenda a programar em várias linguagens, como Python, Java, JavaScript, e mais.<br>
+                Aprenda a programar em várias linguagens e frameworks, como Python, Java, JavaScript, PHP, React, React Native, Nodejs e muito mais. <br>
                 Com tutoriais detalhados e projetos práticos, você desenvolverá as competências necessárias para se destacar no mercado de trabalho.
             </p>
         </div>
 
+    
         <div class="section">
             <h2>Desenvolvimento Web com HTML, CSS e JavaScript</h2>
             <div class="content-flex">
@@ -84,18 +88,47 @@
         </div>
 
         <div class="section">
+            <h2>Formação Back-End Java e Spring Boot Rest API</h2>
+            <div class="content-flex">
+                <img src="images/capaJava.jpeg" alt="Capa do curso de Java">
+                
+                <p>
+                    Seja um expert em integração de api rest com a Formação Back-End Java e Spring Boot Rest API. <br>
+                    Já disponível para você começar a estudar, este curso abrange todo o conhecimento necessário para modelar e criar um back-end de loja virtual completo.<br><br>
+
+                    Aprenda a planejar requisitos, criar diagramas de classes e relacionamentos, e desenvolver as classes utilizando a tecnologia Spring. Com esse conhecimento,
+                    você estará apto a construir uma base de api para integração com PIX, Cartão e Boleto, além de ter acesso a um banco de dados completo na AWS Cloud.<br>
+            
+                    Este é um treinamento para quem já sabe programar em Java e Spring Boot em nível básico.<br>
+                    Caso você seja totalmente iniciante em programação e deseja começar do zero,<br>
+                    entre para a <a href="https://go.hotmart.com/H94034004Y"><strong>Formação Java Full-Stack</strong></a>.<br><br>
+
+                    Se você já possui conhecimentos básicos em Java, pode se inscrever neste treinamento para aprender a criar APIs Rest em nível profissional.
+                    
+                    Requisitos: computador com monitor de no mínimo 15 polegadas, ótima internet, 4GB de memória RAM e com sistema operacional Windows (acima da versão 7), MacOS ou Linux.
+                    
+                    Veja a grade de aulas e todos os detalhes logo mais abaixo.
+                </p>
+                
+            </div>
+
+            <div class="cta">
+                <button onclick="buyNow('https://go.hotmart.com/V94033955M')">Comprar Agora</button>
+            </div>
+        </div>
+        <div class="section">
             <h2>Curso 4: Banco de Dados com MySQL</h2>
             <div class="content-flex">
                 <img src="images/capaSQL.jpeg" alt="Capa do curso de MySQL">
                 <p>
                     Sejam bem-vindos ao curso "Modelagem de Dados e Linguagem SQL Descomplicadas usando o MySQL"! <br>
                     Após o sucesso do curso "Modelagem de Dados em Banco de Dados Relacional", estamos de volta com um novo curso, atendendo a pedidos de milhares de alunos. <br>
-                    Aprenda SQL de maneira didática e divertida com o nosso curso, resultado de mais de 20 anos de experiência em sistemas de informações e 15 anos como professor universitário. <br>
+                    Aprenda SQL de maneira didática e divertida com o nosso curso, resultado de mais de 20 anos de experiência em sistemas de informações e 15 anos como professor universitário. <br><br>
                     Este curso é ideal para qualquer pessoa, independentemente da área de formação, que deseja aprender a criar e manipular bases de dados relacionais. <br>
                     Na era do Big Data, dominar SQL é essencial! <br>
-                    Iniciaremos com modelagem conceitual, relacional e normalização, seguindo para a instalação do MySQL e desvendando a linguagem SQL. <br>
+                    Iniciaremos com modelagem conceitual, relacional e normalização, seguindo para a instalação do MySQL e desvendando a linguagem SQL. <br><br>
                     Você aprenderá a estruturar projetos de bancos de dados, normalizar bases, criar modelos e esquemas relacionais e realizar consultas utilizando SQL. <br>
-                    Seja você um aspirante a cientista de dados, estudante universitário ou profissional de qualquer área, este curso é para você. <br>
+                    Seja você um aspirante a cientista de dados, estudante universitário ou profissional de qualquer área, este curso é para você. <br><br>
                     Grande abraço e divirta-se com o nosso curso!
                 </p>
             </div>
@@ -123,6 +156,8 @@
 
     </div>
 
+
     <script src="js/script.js"></script>
+   
 </body>
 </html>

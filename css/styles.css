@@ -39,16 +39,21 @@ header {
 }
 
 header h1 {
-    margin: 0;
+ margin: o;
+ font-family: "Bungee", sans-serif;
+ font-weight: 400;
+ font-style: normal;
 }
 
 .subheader {
     text-align: center;
     margin: 20px 0;
-    font-size: 1.2em;
-    color: rgba(30, 255, 0, 0.8);
-    box-shadow: #00000082;
+    font-size: 2em;
+    color: #fff;
+    font-weight: 600;
+
 }
+
 
 .section {
     background: none;
@@ -102,6 +107,10 @@ img{
 }
 
 .fgreen{
+    
+    text-shadow: #fff;
+    text-align: center;
+    height:128px;
     background-color: #09ff00;
     color:#000;
 }

@@ -17,5 +17,5 @@ function typeWriterEffect(element, speed) {
 // Selecionar o elemento e chamar a função de efeito de máquina de escrever
 const element = document.getElementById('texto-maquina-escrever');
 if (element) {
-    typeWriterEffect(element, 150); // 50 milissegundos de intervalo entre cada caractere
+    typeWriterEffect(element, 80); // 50 milissegundos de intervalo entre cada caractere
 }

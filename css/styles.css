@@ -8,12 +8,22 @@
 
 
 body, #canvas {
-    font-family: 'Roboto', Arial, sans-serif;
+    font-family: "Playwrite DE Grund", cursive;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
     margin: 0;
     padding: 0;
     background-color: #000;
     color: rgba(255, 255, 255, 0.8);
 }
+
+.playwrite-de-grund-text__font {
+    font-family: "Playwrite DE Grund", cursive;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+  }
 
 .container {
     width: 80%;
@@ -160,16 +170,16 @@ footer#site-footer .footer-top-menu-item-active {
 }
 
 footer#site-footer .footer-top-menu-item-active a {
-    color: #007ba6;
+    color: #09ff00;
 }
 
 footer#site-footer .footer-top-menu-item-active a:hover {
-    color: #00c3ce;
+    color: #09ff00;
 }
 
 footer#site-footer .footer-top-menu-item-active::before {
     content: "";
-    background: #007ba6;
+    background: #09ff00;
     padding: 0.15rem 0;
     width: 100%;
     position: absolute;
@@ -177,7 +187,7 @@ footer#site-footer .footer-top-menu-item-active::before {
 }
 
 footer#site-footer .footer-top-menu-item-active:hover::before {
-    background: #00c3ce;
+    background: #09ff00;
     transition-duration: 0.6s;
 }
 
@@ -188,7 +198,7 @@ footer#site-footer #footer-buttons-container {
 
 footer#site-footer a.footer-button {
     background: transparent;
-    border: 0.15rem solid #a8a8a8;
+    border: 0.15rem solid #09ff00;
     border-radius: 1.38rem;
     padding: 0.5rem 1rem;
     font-weight: bold;
@@ -197,7 +207,7 @@ footer#site-footer a.footer-button {
 }
 
 footer#site-footer a.footer-button:hover {
-    border-color: #00c3ce;
+    border-color: #09ff00;
 }
 
 footer#site-footer section.horizontal-footer-section#footer-middle-section {
@@ -382,8 +392,9 @@ footer#site-footer #footer-social-buttons img:hover {
     footer#site-footer section#footer-bottom-section #footer-social-buttons {
         margin-top: 1.32rem;
     }
-}
 
+
+}
 
 
 

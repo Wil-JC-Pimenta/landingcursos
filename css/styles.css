@@ -1,4 +1,4 @@
-body {
+body, #canvas {
     font-family: 'Roboto', Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -41,9 +41,12 @@ header h1 {
 }
 
 .section h2 {
-    color: rgba(4, 212, 39, 0.692);
+    color:#15ff00d3;
 }
-
+img{
+    max-width: 200px;
+    max-height: 200px;
+}
 .cta {
     text-align: center;
     margin: 20px 0;

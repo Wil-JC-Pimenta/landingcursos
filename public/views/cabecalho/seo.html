@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WMPT Web Developer</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+DE+Grund:wght@100..400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   
+   
+   
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Playwrite+DE+Grund:wght@100..400&display=swap" rel="stylesheet">  
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;0,800;1,400;1,700;1,800&display=swap');
+
+* {
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+
+body, #canvas {
+    font-family: "Playwrite DE Grund", cursive;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.playwrite-de-grund-text__font {
+    font-family: "Playwrite DE Grund", cursive;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+  }
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background: rgba(53, 66, 74, 0.7);
+    color: rgba(255, 255, 255, 0.8);
+    padding: 10px 0;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 1.5rem;
+ margin: o;
+ padding-bottom: 5%;
+ font-family: "Bungee", sans-serif;
+ font-weight: 400;
+ font-style: normal;
+}
+
+.subheader {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 2em;
+    color: #fff;
+    font-weight: 600;
+
+}
+
+
+.section {
+    background: none;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #fff;
+}
+
+.section h2 {
+    color:#15ff00d3;
+}
+img{
+    max-width: 200px;
+    max-height: 200px;
+}
+.cta {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.cta button {
+    background: #15ff00d3;
+    color: rgba(255, 255, 255, 0.8);
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+}
+
+.cta button:hover {
+    background: #cccf10;
+}
+
+.content-flex {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.content-flex img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.content-flex p {
+    flex: 1;
+}
+
+.fgreen{
+    
+    text-shadow: #fff;
+    text-align: center;
+    height:128px;
+    background-color: #09ff00;
+    color:#000;
+}
+
+
+footer#site-footer {
+    margin: 0 auto;
+    width: 960px;
+    background:none;
+    border-radius: 6%;
+    padding: 1rem;
+    color: #09ff00;
+}
+
+footer#site-footer a {
+    color: #a8a8a8;
+}
+
+footer#site-footer a:hover {
+    color: #09ff00;
+}
+
+footer#site-footer h1 {
+    color:  #09ff00;
+}
+
+footer#site-footer section.horizontal-footer-section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding: 2.38rem 2rem;
+}
+
+footer#site-footer section.horizontal-footer-section#footer-top-section {
+    justify-content: center;
+}
+
+footer#site-footer #footer-logo {
+    margin-right: auto;
+    flex-shrink: 0;
+}
+
+footer#site-footer #footer-logo img {
+    height: 2.28rem;
+}
+
+footer#site-footer ul#footer-top-menu {
+    padding: 0;
+    margin: 0;
+}
+
+footer#site-footer ul#footer-top-menu li {
+    display: inline;
+    list-style-type: none;
+    margin-right: 1.32rem;
+    font-weight: bold;
+}
+
+footer#site-footer ul#footer-top-menu li a {
+    text-decoration: none;
+}
+
+footer#site-footer .footer-top-menu-item-active {
+    position: relative;
+}
+
+footer#site-footer .footer-top-menu-item-active a {
+    color: #09ff00;
+}
+
+footer#site-footer .footer-top-menu-item-active a:hover {
+    color: #09ff00;
+}
+
+footer#site-footer .footer-top-menu-item-active::before {
+    content: "";
+    background: #09ff00;
+    padding: 0.15rem 0;
+    width: 100%;
+    position: absolute;
+    top: 1.68em;
+}
+
+footer#site-footer .footer-top-menu-item-active:hover::before {
+    background: #09ff00;
+    transition-duration: 0.6s;
+}
+
+footer#site-footer #footer-buttons-container {
+    margin-left: auto;
+    flex-shrink: 0;
+}
+
+footer#site-footer a.footer-button {
+    background: transparent;
+    border: 0.15rem solid #09ff00;
+    border-radius: 1.38rem;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+}
+
+footer#site-footer a.footer-button:hover {
+    border-color: #09ff00;
+}
+
+footer#site-footer section.horizontal-footer-section#footer-middle-section {
+    align-items: flex-start;
+}
+
+footer#site-footer .footer-columns {
+    flex-basis: 18%;
+    padding-right: 1rem;
+}
+
+footer#site-footer .footer-columns-large {
+    flex-basis: 46%;
+    padding-right: 2rem;
+}
+
+footer#site-footer .footer-columns h1 {
+    font-size: 1rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-weight: 800;
+}
+
+footer#site-footer .footer-columns.footer-columns-large h1 {
+    font-size: 1.28rem;
+    margin-top: 3rem;
+    margin-bottom: 1.32rem;
+}
+
+footer#site-footer .footer-columns.footer-columns-large h1:first-child {
+    margin-top: 0;
+}
+
+footer#site-footer ul.footer-column-menu {
+    margin: 0;
+    padding: 0;
+}
+
+footer#site-footer ul.footer-column-menu li {
+    list-style-type: none;
+    margin-bottom: 0.68rem;
+    font-size: 0.88rem;
+}
+
+footer#site-footer #footer-about address {
+    font-style: normal;
+    font-weight: bold;
+}
+
+footer#site-footer #footer-about address p img {
+    margin-right: 0.68rem;
+}
+
+footer#site-footer #footer-about a.footer-button {
+    margin-top: 0.32rem;
+}
+
+footer#site-footer section.horizontal-footer-section#footer-bottom-section {
+    padding: 1.32rem 0;
+    margin: 2rem 2rem 1.32rem 2rem;
+    border-top: 0.05rem solid #666666;
+}
+
+footer#site-footer #footer-social-buttons {
+    justify-self: flex-end;
+    margin-left: auto;
+}
+
+footer#site-footer #footer-social-buttons img {
+    margin-left: 0.68rem;
+}
+
+footer#site-footer #footer-social-buttons img:hover {
+    cursor: pointer;
+}
+
+
+
+
+
+
+@media screen and (max-width: 959px) {
+
+    footer#site-footer {
+        width: 100%;
+    }
+
+    footer#site-footer section.horizontal-footer-section {
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    footer#site-footer section.horizontal-footer-section div {
+        flex-basis: 100%;
+        width: 100%;
+    }
+
+    footer#site-footer ul li {
+        display: block !important;
+        padding: 1em !important;
+        border-top: 1px solid #555555;
+        border-bottom: none;
+        border-left: none;
+        border-right: none;
+        font-size: 1.15rem !important;
+    }
+
+    footer#site-footer ul li:first-child {
+        border-top: none;
+    }
+
+    footer#site-footer a.footer-button {
+        display: block;
+        text-align: center;
+        max-width: 350px;
+        margin: 0.32rem auto;
+    }
+
+    footer#site-footer section.horizontal-footer-section#footer-top-section div {
+        margin-top: 0;
+        margin-bottom: 1.68rem;
+    }
+
+    footer#site-footer #footer-logo {
+        margin-right: 0;
+    }
+
+    footer#site-footer #footer-buttons-container {
+        margin-left: 0;
+    }
+
+    footer#site-footer ul#footer-top-menu {
+        width: 100%;
+        margin: 2rem 0 0 0;
+    }
+
+    footer#site-footer .footer-top-menu-item-active::before {
+        display: none;
+    }
+
+    footer#site-footer #footer-about {
+        margin-bottom: 3rem;
+    }
+
+    footer#site-footer .footer-columns-large,
+    footer#site-footer .footer-columns {
+        padding-right: 0;
+    }
+
+    footer#site-footer .footer-columns {
+        margin-top: 0;
+        margin-bottom: 4rem;
+    }
+
+    footer#site-footer .footer-columns:last-child {
+        margin-bottom: 0;
+    }
+
+    footer#site-footer .footer-columns h1 {
+        text-align: center;
+        font-size: 1.3rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15rem;
+    }
+
+    footer#site-footer ul.footer-column-menu li {
+        margin-bottom: 0;
+        display: block;
+        text-align: center;
+    }
+
+    footer#site-footer section#footer-bottom-section div {
+        text-align: center;
+    }
+
+    footer#site-footer section.horizontal-footer-section#footer-bottom-section {
+        margin: 1.32rem 0;
+        padding: 0;
+        border-top: 0;
+    }
+
+    footer#site-footer section#footer-bottom-section #footer-social-buttons {
+        margin-top: 1.32rem;
+    }
+
+
+}
+
+
+
+
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    .content-flex {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 90%;
+    }
+
+    .cta button {
+        width: 90%;
+        padding: 10px 0;
+    }
+}
+
+</style>
+
+
+
+
+</head>
+<body id="canvas">
+
+
+    
+    <header class="fgreen">
+        <h1>SEO</h1>
+        <div>
+            <img src="icons/RubyIcon.png" alt="Imagem Ruby">
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="subheader" id="texto-maquina-escrever">
+            Domine as principais habilidades de desenvolvimento de software
+        </div>
+
+        
+    <footer id="site-footer">
+
+        <section class="horizontal-footer-section" id="footer-top-section">
+            <div id="footer-logo">
+                <picture>
+                    <img src="icons/RubyIcon.png" alt="footer logo" role="presentation">
+                </picture>
+            </div>
+            <div id="footer-top-menu-container" role="menubar">
+                <ul id="footer-top-menu" role="menu">
+                    <li class="footer-top-menu-item" role="menuitem">
+                        <a href="#" class="footer-top-menu-link">Serviços de TI</a>
+                    </li>
+                    <li class="footer-top-menu-item footer-top-menu-item-active" role="menuitem">
+                        <a href="#" class="footer-top-menu-link">Desenvolvimento Web</a>
+                    </li>
+                    <li class="footer-top-menu-item" role="menuitem">
+                        <a href="#" class="footer-top-menu-link">SEO</a>
+                    </li>
+                    <li class="footer-top-menu-item" role="menuitem">
+                        <a href="#" class="footer-top-menu-link">UI/UX</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="footer-buttons-container">
+                <a href="#" class="footer-button" role="button">Veja nossos Projetos</a>
+            </div>
+        </section>
+    
+        <section class="horizontal-footer-section" id="footer-middle-section">
+            <div id="footer-about" class="footer-columns footer-columns-large">
+                <h1>Nosso Endereço</h1>
+                <address>
+                    <p><img src="https://img.icons8.com/ios-filled/14/eeeeee/marker.png">Avenida Afonso Pena, Savassi, Belo Horizonte - MG</p>
+                    <p><img src="https://img.icons8.com/ios-filled/14/eeeeee/phone.png">(31) 1234-5678</p>
+                    <p><img src="https://img.icons8.com/ios-filled/14/eeeeee/mail.png">contato@wmptdev.com</p>
+                    <p><img src="https://img.icons8.com/ios-filled/14/eeeeee/clock.png">8:00 AM – 18:00 PM</p>
+                </address>
+                
+                <h1> Nosso Newsletter</h1>
+                <a href="#" class="footer-button" role="button">Inscreva-se</a>
+            </div>
+            <div class="footer-columns">
+                <h1>Visão Geral</h1>
+                <ul class="footer-column-menu" role="menu">
+                    <li class="footer-column-menu-item" role="menuitem">
+                        <a href="#" class="footer-column-menu-item-link">Serviços </a>
+                    </li>
+                    <li class="footer-column-menu-item" role="menuitem">
+                        <a href="#" class="footer-column-menu-item-link">Preços</a>
+                    </li>
+                    <li class="footer-column-menu-item" role="menuitem">
+                        <a href="#" class="footer-column-menu-item-link">Portfólio</a>
+                    </li>
+                    <li class="footer-column-menu-item" role="menuitem">
+                        <a href="#" class="footer-column-menu-item-link">Notícias</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-columns">
+                <h1>Recursos</h1>
+                <ul class="footer-column-menu" role="menu">
+                    <li class="footer-column-menu-item" role="menuitem">
+                        <a href="#" class="footer-column-menu-item-link">FAQ</a>
+                    </li>
+                    <li class="footer-column-menu-item" role="menuitem">
+                        <a href="#" class="footer-column-menu-item-link">Mídia</a>
+                    </li>
+                    <li class="footer-column-menu-item" role="menuitem">
+                        <a href="#" class="footer-column-menu-item-link">Guias</a>
+                    </li>
+                    <li class="footer-column-menu-item" role="menuitem">
+                        <a href="#" class="footer-column-menu-item-link">Recursos Gratuitos</a>
+                    </li>
+                    <li class="footer-column-menu-item" role="menuitem">
+                        <a href="#" class="footer-column-menu-item-link">Depoimentos</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-columns">
+                <h1>Informações</h1>
+                <ul class="footer-column-menu" role="menu">
+                    <li class="footer-column-menu-item" role="menuitem">
+                        <a href="#" class="footer-column-menu-item-link">Sobre Nós</a>
+                    </li>
+                    <li class="footer-column-menu-item" role="menuitem">
+                        <a href="#" class="footer-column-menu-item-link">Termos de Uso</a>
+                    </li>
+                    <li class="footer-column-menu-item">
+                        <a href="#" class="footer-column-menu-item-link" role="menuitem">Informações Legais</a>
+                    </li>
+                    <li class="footer-column-menu-item" role="menuitem">
+                        <a href="#" class="footer-column-menu-item-link">Mensagem para Nós</a>
+                    </li>
+                    <li class="footer-column-menu-item" role="menuitem">
+                        <a href="#" class="footer-column-menu-item-link">Deixe um Feedback</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        
+        <section class="horizontal-footer-section" id="footer-bottom-section">
+            <div id="footer-copyright-info">
+                &copy; WPMT Web Developer . 2024. Todos os direitos reservados.
+            </div>
+            <div id="footer-social-buttons">
+                <img src="https://img.icons8.com/ios-filled/25/999999/facebook--v1.png"/>
+                <img src="https://img.icons8.com/ios-filled/25/999999/telegram-app.png"/>
+                <img src="https://img.icons8.com/ios-filled/25/999999/pinterest--v1.png"/>
+                <img src="https://img.icons8.com/ios-filled/25/999999/instagram--v1.png"/>
+                <img src="https://img.icons8.com/ios-filled/25/999999/tiktok.png"/> 
+            </div>
+        </section>
+    
+    </footer>
+    
+    <script src="js/script.js" defer></script>
+    <script src="js/header.js" defer></script>  
+    <script src="js/background.js" defer></script>
+    <script src="js/scroll.js" defer></script>
+   
+</body>
+</html>

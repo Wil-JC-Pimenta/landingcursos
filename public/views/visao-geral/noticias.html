@@ -4,244 +4,562 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WMPT Web Developer</title>
-    <link rel="stylesheet" href="css/styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playwrite+DE+Grund:wght@100..400&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Playwrite+DE+Grund:wght@100..400&display=swap" rel="stylesheet">  
+
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;0,800;1,400;1,700;1,800&display=swap');
+
+        * {
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+
+        body, #canvas {
+            font-family: "Playwrite DE Grund", cursive;
+            font-optical-sizing: auto;
+            font-weight: 100;
+            font-style: normal;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .playwrite-de-grund-text__font {
+            font-family: "Playwrite DE Grund", cursive;
+            font-optical-sizing: auto;
+            font-weight: 100;
+            font-style: normal;
+        }
+
+        .container {
+
+            border: none;
+            width: 80%;
+            margin: 0 auto;
+            padding-top:120px;
+        }
+
+        #img-views-recursos-gratuitos{
+            opacity: 60%;
+        }
+        .box {
+        width: 100%;
+        margin: 5%;
+        padding: 5%;
+        width: auto;
+        height: auto;
+        display: grid;
+        place-content: center;
+        color: white;
+        font-size: 1,5em;;
+        text-shadow: 0 1px 0 #000;
+        border: solid 5px transparent;
+        border-radius: 2em;
+        background-color: #000;
+
+        --border-angle: 0turn; /* For animation */
+        --main-bg: conic-gradient(
+            from var(--border-angle),
+            #213,
+            #112 5%,
+            #112 60%,
+            #213 95%
+        );
+
+        --gradient-border: conic-gradient(
+            from var(--border-angle),
+            transparent 25%,
+            rgba(226, 17, 17, 0.878),
+            rgb(0, 38, 255) 99%,
+            transparent
+        );
+
+        background: 
+            var(--main-bg) padding-box,
+            var(--gradient-border) border-box,
+            var(--main-bg) border-box;
+
+        background-position: center center;
+
+        animation: bg-spin 3s linear infinite;
+        }
+
+        @keyframes bg-spin {
+        to {
+            --border-angle: 1turn;
+        }
+        }
+
+        .container:hover {
+        animation-play-state: paused;
+        }
+
+        @property --border-angle {
+        syntax: "<angle>";
+        inherits: true;
+        initial-value: 0turn;
+        }
+
+
+        header {
+            border: none;
+            background: rgba(53, 66, 74, 0.7);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        header h1 {
+        font-size: 1.5rem;
+        margin: o;
+        padding-bottom: 5%;
+        font-family: "Bungee", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        }
+
+        .subheader {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 2em;
+            color: #fff;
+            font-weight: 600;
+
+        }
+
+
+        .section {
+            background: none;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            color: #fff;
+        }
+
+        .section h2 {
+            color:#15ff00d3;
+        }
+        img{
+            max-width: 200px;
+            max-height: 200px;
+        }
+        .cta {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .cta button {
+            background: #15ff00d3;
+            color: rgba(255, 255, 255, 0.8);
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .cta button:hover {
+            background: #cccf10;
+        }
+
+        .content-flex {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .content-flex img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        .content-flex p {
+            flex: 1;
+        }
+
+        .fgreen{
+            
+            text-shadow: #fff;
+            text-align: center;
+            height:128px;
+            background-color: #09ff00;
+            color:#000;
+        }
+
+
+        footer#site-footer {
+            margin: 0 auto;
+            width: 960px;
+            background:none;
+            border-radius: 6%;
+            padding: 1rem;
+            color: #09ff00;
+        }
+
+        footer#site-footer a {
+            color: #a8a8a8;
+        }
+
+        footer#site-footer a:hover {
+            color: #09ff00;
+        }
+
+        footer#site-footer h1 {
+            color:  #09ff00;
+        }
+
+        footer#site-footer section.horizontal-footer-section {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            padding: 2.38rem 2rem;
+        }
+
+        footer#site-footer section.horizontal-footer-section#footer-top-section {
+            justify-content: center;
+        }
+
+        footer#site-footer #footer-logo {
+            margin-right: auto;
+            flex-shrink: 0;
+        }
+
+        footer#site-footer #footer-logo img {
+            height: 2.28rem;
+        }
+
+        footer#site-footer ul#footer-top-menu {
+            padding: 0;
+            margin: 0;
+        }
+
+        footer#site-footer ul#footer-top-menu li {
+            display: inline;
+            list-style-type: none;
+            margin-right: 1.32rem;
+            font-weight: bold;
+        }
+
+        footer#site-footer ul#footer-top-menu li a {
+            text-decoration: none;
+        }
+
+        footer#site-footer .footer-top-menu-item-active {
+            position: relative;
+        }
+
+        footer#site-footer .footer-top-menu-item-active a {
+            color: #09ff00;
+        }
+
+        footer#site-footer .footer-top-menu-item-active a:hover {
+            color: #09ff00;
+        }
+
+        footer#site-footer .footer-top-menu-item-active::before {
+            content: "";
+            background: #09ff00;
+            padding: 0.15rem 0;
+            width: 100%;
+            position: absolute;
+            top: 1.68em;
+        }
+
+        footer#site-footer .footer-top-menu-item-active:hover::before {
+            background: #09ff00;
+            transition-duration: 0.6s;
+        }
+
+        footer#site-footer #footer-buttons-container {
+            margin-left: auto;
+            flex-shrink: 0;
+        }
+
+        footer#site-footer a.footer-button {
+            background: transparent;
+            border: 0.15rem solid #09ff00;
+            border-radius: 1.38rem;
+            padding: 0.5rem 1rem;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        footer#site-footer a.footer-button:hover {
+            border-color: #09ff00;
+        }
+
+        footer#site-footer section.horizontal-footer-section#footer-middle-section {
+            align-items: flex-start;
+        }
+
+        footer#site-footer .footer-columns {
+            flex-basis: 18%;
+            padding-right: 1rem;
+        }
+
+        footer#site-footer .footer-columns-large {
+            flex-basis: 46%;
+            padding-right: 2rem;
+        }
+
+        footer#site-footer .footer-columns h1 {
+            font-size: 1rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        footer#site-footer .footer-columns.footer-columns-large h1 {
+            font-size: 1.28rem;
+            margin-top: 3rem;
+            margin-bottom: 1.32rem;
+        }
+
+        footer#site-footer .footer-columns.footer-columns-large h1:first-child {
+            margin-top: 0;
+        }
+
+        footer#site-footer ul.footer-column-menu {
+            margin: 0;
+            padding: 0;
+        }
+
+        footer#site-footer ul.footer-column-menu li {
+            list-style-type: none;
+            margin-bottom: 0.68rem;
+            font-size: 0.88rem;
+        }
+
+        footer#site-footer #footer-about address {
+            font-style: normal;
+            font-weight: bold;
+        }
+
+        footer#site-footer #footer-about address p img {
+            margin-right: 0.68rem;
+        }
+
+        footer#site-footer #footer-about a.footer-button {
+            margin-top: 0.32rem;
+        }
+
+        footer#site-footer section.horizontal-footer-section#footer-bottom-section {
+            padding: 1.32rem 0;
+            margin: 2rem 2rem 1.32rem 2rem;
+            border-top: 0.05rem solid #666666;
+        }
+
+        footer#site-footer #footer-social-buttons {
+            justify-self: flex-end;
+            margin-left: auto;
+        }
+
+        footer#site-footer #footer-social-buttons img {
+            margin-left: 0.68rem;
+        }
+
+        footer#site-footer #footer-social-buttons img:hover {
+            cursor: pointer;
+        }
+
+
+
+
+
+
+        @media screen and (max-width: 959px) {
+
+            footer#site-footer {
+                width: 100%;
+            }
+
+            footer#site-footer section.horizontal-footer-section {
+                flex-direction: column;
+                flex-wrap: wrap;
+            }
+
+            footer#site-footer section.horizontal-footer-section div {
+                flex-basis: 100%;
+                width: 100%;
+            }
+
+            footer#site-footer ul li {
+                display: block !important;
+                padding: 1em !important;
+                border-top: 1px solid #555555;
+                border-bottom: none;
+                border-left: none;
+                border-right: none;
+                font-size: 1.15rem !important;
+            }
+
+            footer#site-footer ul li:first-child {
+                border-top: none;
+            }
+
+            footer#site-footer a.footer-button {
+                display: block;
+                text-align: center;
+                max-width: 350px;
+                margin: 0.32rem auto;
+            }
+
+            footer#site-footer section.horizontal-footer-section#footer-top-section div {
+                margin-top: 0;
+                margin-bottom: 1.68rem;
+            }
+
+            footer#site-footer #footer-logo {
+                margin-right: 0;
+            }
+
+            footer#site-footer #footer-buttons-container {
+                margin-left: 0;
+            }
+
+            footer#site-footer ul#footer-top-menu {
+                width: 100%;
+                margin: 2rem 0 0 0;
+            }
+
+            footer#site-footer .footer-top-menu-item-active::before {
+                display: none;
+            }
+
+            footer#site-footer #footer-about {
+                margin-bottom: 3rem;
+            }
+
+            footer#site-footer .footer-columns-large,
+            footer#site-footer .footer-columns {
+                padding-right: 0;
+            }
+
+            footer#site-footer .footer-columns {
+                margin-top: 0;
+                margin-bottom: 4rem;
+            }
+
+            footer#site-footer .footer-columns:last-child {
+                margin-bottom: 0;
+            }
+
+            footer#site-footer .footer-columns h1 {
+                text-align: center;
+                font-size: 1.3rem;
+                text-transform: uppercase;
+                letter-spacing: 0.15rem;
+            }
+
+            footer#site-footer ul.footer-column-menu li {
+                margin-bottom: 0;
+                display: block;
+                text-align: center;
+            }
+
+            footer#site-footer section#footer-bottom-section div {
+                text-align: center;
+            }
+
+            footer#site-footer section.horizontal-footer-section#footer-bottom-section {
+                margin: 1.32rem 0;
+                padding: 0;
+                border-top: 0;
+            }
+
+            footer#site-footer section#footer-bottom-section #footer-social-buttons {
+                margin-top: 1.32rem;
+            }
+
+
+        }
+
+
+
+
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+
+            .content-flex {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                width: 90%;
+            }
+
+            .cta button {
+                width: 90%;
+                padding: 10px 0;
+            }
+        }
+
+        </style>
 </head>
+
 <body id="canvas">
+
+
     
     <header class="fgreen">
-        <h1>Torne-se um Especialista em Programação</h1>
+        <h1>Portfolio</h1>
         <div>
-            <img src="icons/RubyIcon.png" alt="Imagem Ruby">
+            <img src="/icons/Ruby_icon_remove_background.png" alt="Imagem Ruby" id="img-views-recursos-graduidos">
         </div>
     </header>
 
     <div class="container">
-        <div class="subheader" id="texto-maquina-escrever">
-            Domine as principais habilidades de desenvolvimento de software
+      
+        <div class="box">
+           
+            <h2>Em construção</h2>
         </div>
-
-        <div class="section">
-            <h2>Cursos Abrangentes para Todos os Níveis</h2>
-            <p>
-                Os cursos ofertados em nosso site são provenientes de instituições autônomas e conceituadas de ensino de programação. 
-                Selecionamos cuidadosamente os cursos mais requisitados no mercado de trabalho,
-                garantindo que você tenha acesso ao melhor conteúdo disponível. <br>
-                Os cursos de programação são projetados para todos os níveis de habilidade,
-                desde iniciantes até programadores avançados. <br>
-                Aprenda a programar em diversas linguagens e frameworks, 
-                como Python, Java, JavaScript, PHP, React, React Native, Node.js, Ruby on Rails e muito mais. <br>
-                Com tutoriais detalhados e projetos práticos, você desenvolverá as competências necessárias
-                para se destacar no competitivo mercado de trabalho de tecnologia.
-            </p>
-            
-            
-        </div>
-
-    
-        <div class="section">
-            <h2>Desenvolvimento Web com HTML, CSS e JavaScript</h2>
-            <div class="content-flex">
-                <img src="images/capaJavaScript.jpeg" alt="Capa do curso de JavaScript">
-                <p>
-                    JavaScript, HTML e CSS para Iniciantes e Estudantes.
-
-                    Neste curso completo será mostrado como o desenvolvimento de sites acontece de verdade no mercado de trabalho.<br>
-
-                    Vamos abordar aqui do ZERO tudo o que você estudante ou iniciante precisa para de fato desenvolver as suas primeiras aplicações Web totalmente responsiva e dinâmica.<br>
-
-                    Responsiva pois teremos o compromisso de fazer a aplicação (mostrada passo a passo neste curso) funcionar perfeitamente em celulares e computadores de diversos modelos.<br>
-
-                    Dinâmica pois esta mesma aplicação web será capaz de trazer respostas ao usuário, por intermédio de caixas de diálogo ou mesmo campos de formulários.<br>
-
-                    Então não perca mais tempo e inscreva-se agora mesmo neste curso completo de programação Web e dê o primeiro passo para sua carreira de desenvolvedor(a) de sucesso!<br>
-                </p>
-            </div>
-            <div class="cta">
-                <button onclick="buyNow('https://go.hotmart.com/Q89603460J')">Comprar Agora</button>
-            </div>
-        </div>
-
-        
-        <div class="section">
-            <h2>Desenvolvimento Ruby on Rails 7</h2>
-            
-            <div class="content-flex">
-                <img src="images/capaRuby.jpeg" alt="Capa do curso de Ruby on Rails">
-                <p>🚀 Transforme sua jornada como desenvolvedor! Este é o curso completo e prático de Ruby on Rails,
-                     ideal para quem deseja começar a criar aplicações web com confiança. 
-                    Você aprenderá a dominar o Ruby on Rails 7, entender o padrão MVC, trabalhar eficientemente com bancos de dados, 
-                    construir interfaces dinâmicas e responsivas, implementar autenticação e autorização de usuários,
-                    escrever testes automatizados para garantir a qualidade do código e realizar deploy de suas aplicações Rails.
-                    Com suporte através de um repositório GitHub com exemplos práticos, links para a documentação oficial e um grupo no Telegram para discussões, você estará preparado para se destacar como desenvolvedor web.</p>
-            </div>
-            <div class="cta">
-                <button onclick="buyNow('https://go.hotmart.com/Q94049275N')">Comprar Agora</button>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>Desenvolvimento Backend Python</h2>
-            <div class="content-flex">
-                <img src="images/capaPython.jpeg" alt="Capa do curso de Python">
-                <p>
-                    Torne-se um expert em Python com nosso curso completo! Aprenda desde os primeiros passos até a criação de códigos para situações reais, aumentando sua produtividade na programação. <br>
-                    Totalmente online, com pagamento único e sem mensalidades, você define seus próprios horários e tem acesso vitalício ao conteúdo. <br>
-                    Receba um certificado reconhecido com carga horária de 30 horas, ideal para capacitação profissional e horas extracurriculares. <br>
-                    Aproveite as videoaulas, assista quantas vezes quiser e tenha acesso a diversos E-books em PDF e bônus exclusivos. <br>
-                    Curso aprovado por alunos de diferentes áreas e profissionais. Inscreva-se agora e comece sua jornada no Python!
-                </p>
-            </div>
-            <div class="cta">
-                <button onclick="buyNow('https://go.hotmart.com/E94013688E')">Comprar Agora</button>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>Node.js, React e React Native</h2>
-            <div class="content-flex">
-                <img src="images/capaReactNative.jpeg" alt="Capa do curso de React Native">
-                <p>
-                    Descubra finalmente o exato método para aprender a programar do absoluto ZERO com Node.js, React e React Native. <br>
-                    Conheça o curso online que já ajudou milhares de pessoas a aprender a programar e desenvolver seus próprios projetos do zero. <br>
-                    Com nossas vídeo aulas interativas, você aprenderá as tecnologias mais procuradas do mercado de forma prática e eficiente. <br>
-                    Tenha acesso a um fórum exclusivo para tirar suas dúvidas e compartilhar experiências com outros alunos. <br>
-                    E o melhor de tudo, você terá 5 anos de acesso ao curso, incluindo todas as atualizações e novos conteúdos que lançarmos. <br>
-                    Não perca tempo, inscreva-se agora e dê o primeiro passo para se tornar um desenvolvedor de sucesso!
-                </p>
-            </div>
-            <div class="cta">
-                <button onclick="buyNow('https://go.hotmart.com/C89604382U')">Comprar Agora</button>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>Formação Back-End Java e Spring Boot Rest API</h2>
-            <div class="content-flex">
-                <img src="images/capaJava.jpeg" alt="Capa do curso de Java">
-                
-                <p>
-                    Seja um expert em integração de api rest com a Formação Back-End Java e Spring Boot Rest API. <br>
-                    Já disponível para você começar a estudar, este curso abrange todo o conhecimento necessário para modelar e criar um back-end de loja virtual completo.<br><br>
-
-                    Aprenda a planejar requisitos, criar diagramas de classes e relacionamentos, e desenvolver as classes utilizando a tecnologia Spring. Com esse conhecimento,
-                    você estará apto a construir uma base de api para integração com PIX, Cartão e Boleto, além de ter acesso a um banco de dados completo na AWS Cloud.<br>
-            
-                    Este é um treinamento para quem já sabe programar em Java e Spring Boot em nível básico.<br>
-                    Caso você seja totalmente iniciante em programação e deseja começar do zero,<br>
-                    entre para a <a href="https://go.hotmart.com/H94034004Y"><strong>Formação Java Full-Stack</strong></a>.<br><br>
-
-                    Se você já possui conhecimentos básicos em Java, pode se inscrever neste treinamento para aprender a criar APIs Rest em nível profissional.
-                    
-                    Requisitos: computador com monitor de no mínimo 15 polegadas, ótima internet, 4GB de memória RAM e com sistema operacional Windows (acima da versão 7), MacOS ou Linux.
-                    
-                    Veja a grade de aulas e todos os detalhes logo mais abaixo.
-                </p>
-                
-            </div>
-
-            <div class="cta">
-                <button onclick="buyNow('https://go.hotmart.com/V94033955M')">Comprar Agora</button>
-            </div>
-        </div>
-        <div class="section">
-            <h2>Banco de Dados com MySQL</h2>
-            <div class="content-flex">
-                <img src="images/CapaSQL.jpeg" alt="Capa do curso de MySQL">
-                <p>
-                    Sejam bem-vindos ao curso "Modelagem de Dados e Linguagem SQL Descomplicadas usando o MySQL"! <br>
-                    Após o sucesso do curso "Modelagem de Dados em Banco de Dados Relacional", estamos de volta com um novo curso, atendendo a pedidos de milhares de alunos. <br>
-                    Aprenda SQL de maneira didática e divertida com o nosso curso, resultado de mais de 20 anos de experiência em sistemas de informações e 15 anos como professor universitário. <br><br>
-                    Este curso é ideal para qualquer pessoa, independentemente da área de formação, que deseja aprender a criar e manipular bases de dados relacionais. <br>
-                    Na era do Big Data, dominar SQL é essencial! <br>
-                    Iniciaremos com modelagem conceitual, relacional e normalização, seguindo para a instalação do MySQL e desvendando a linguagem SQL. <br><br>
-                    Você aprenderá a estruturar projetos de bancos de dados, normalizar bases, criar modelos e esquemas relacionais e realizar consultas utilizando SQL. <br>
-                    Seja você um aspirante a cientista de dados, estudante universitário ou profissional de qualquer área, este curso é para você. <br><br>
-                    Grande abraço e divirta-se com o nosso curso!
-                </p>
-            </div>
-            <div class="cta">
-                <button onclick="buyNow('https://go.hotmart.com/T89604366G')">Comprar Agora</button>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>PHP, MySQL e Bootstrap</h2>
-            <div class="content-flex">
-                <img src="images/capaPHP.jpeg" alt="Capa do curso de PHP">
-                <p>
-                    Aproveite esta oportunidade única e matricule-se agora em nosso curso 100% em vídeo aulas interativas. <br>
-                    Obtenha seu certificado de conclusão ao final do curso e tenha acesso ao nosso fórum de dúvidas, onde você poderá interagir e aprender ainda mais. <br>
-                    Nossas aulas práticas com PHP foram projetadas para proporcionar um aprendizado dinâmico e envolvente. <br>
-                    E o melhor de tudo, você terá acesso ao curso por 5 anos, incluindo todas as atualizações que ocorrerem nesse período. <br>
-                    Não perca tempo, invista no seu futuro agora!
-                </p>
-            </div>
-            <div class="cta">
-                <button onclick="buyNow('https://go.hotmart.com/G89604256Y')">Comprar Agora</button>
-            </div>
-        </div>
-        <div class="section">
-            <h2>Linux Ubuntu</h2>
-            <div class="content-flex">
-                <img src="images/CapaLinux.jpeg" alt="Capa do curso Linux Ubuntu">
-                <p>
-                    
-                    Neste curso online com certificado de 100 horas, você aprenderá sobre os conceitos principais do Sistema Operacional GNU/Linux Ubuntu.<br>
-                    Serão abordados temas como o surgimento do Linux Ubuntu, o movimento do software livre, a distribuição Ubuntu, procedimentos de instalação,<br>
-                    configurações da área de trabalho, pacote de aplicativos gratuitos como Writer, Calc e Impress, além de comandos básicos e avançados do terminal.<br>
-                  
-                  Ideal para iniciantes, professores e estudantes interessados em explorar mais sobre o sistema operacional GNU/Linux Ubuntu.<br>
-                
-                </p>
-            </div>
-            <div class="cta">
-                <button onclick="buyNow('https://go.hotmart.com/W89603591X')">Comprar Agora</button>
-            </div>
-        </div>
-        <div class="section">
-            <h2>JavaScript</h2>
-            <div class="content-flex">
-                <img src="images/CapaJavaScript-2.jpeg" alt="Capa do curso de JavaScript">
-                <p>
-                    
-                    Se você está buscando dominar a linguagem de programação mais dinâmica e versátil da web, o curso <strong>Desenvolvimento Dinâmico - JavaScript</strong> é a escolha ideal.<br>
-                    JavaScript é a espinha dorsal do desenvolvimento web moderno, permitindo a criação de sites e aplicativos interativos que encantam os usuários.<br>
-                    Este curso abrangente é projetado para atender a uma ampla gama de níveis de experiência, desde iniciantes até desenvolvedores experientes em busca de aprimoramento.<br>
-                    Com um foco prático e hands-on, você mergulhará nas nuances do JavaScript, aprendendo a criar aplicações web altamente dinâmicas e responsivas.<br>
-                
-                </p>
-            </div>
-            <div class="cta">
-                <button onclick="buyNow('https://go.hotmart.com/N94050417C')">Comprar Agora</button>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>Java</h2>
-            <div class="content-flex">
-                <img src="images/CapaJava-2.jpeg" alt="Capa do curso Java">
-                <p>
-                    Descubra o poder do Java com nosso curso completo e acessível! Aprenda no seu ritmo, de onde estiver, com vídeo aulas práticas e suporte especializado.<br>
-                    Nossa plataforma 100% online oferece acesso vitalício, garantia de satisfação, e certificado reconhecido nacionalmente.<br> 
-                    Não perca tempo, comece sua jornada hoje mesmo e transforme seu futuro com as habilidades mais valorizadas no mercado de TI.<br>
-
-            </div>
-            <div class="cta">
-                <button onclick="buyNow('https://go.hotmart.com/N94050645Q')">Comprar Agora</button>
-            </div>
-        </div>
-    </div>
-    
-        
     <footer id="site-footer">
 
+        <section class="horizontal-footer-section" id="footer-top-section">
+            <div id="footer-logo">
+                <picture>
+                    <img src="/icons/RubyIcon.png" alt="footer logo" role="presentation">
+                </picture>
+            </div>
+            <div id="footer-top-menu-container" role="menubar">
+                <ul id="footer-top-menu" role="menu">
+                    <li class="footer-top-menu-item" role="menuitem">
+                        <a href="#" class="footer-top-menu-link">Serviços de TI</a>
+                    </li>
+                    <li class="footer-top-menu-item footer-top-menu-item-active" role="menuitem">
+                        <a href="#" class="footer-top-menu-link">Desenvolvimento Web</a>
+                    </li>
+                    <li class="footer-top-menu-item" role="menuitem">
+                        <a href="#" class="footer-top-menu-link">SEO</a>
+                    </li>
+                    <li class="footer-top-menu-item" role="menuitem">
+                        <a href="#" class="footer-top-menu-link">UI/UX</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="footer-buttons-container">
+                <a href="../views/cabecalho/projetos.html" class="footer-button" role="button">Veja nossos Projetos</a>
+            </div>
+        </section>
         <section class="horizontal-footer-section" id="footer-top-section">
             <div id="footer-logo">
                 <picture>
@@ -251,21 +569,21 @@
             <div id="footer-top-menu-container" role="menubar">
                 <ul id="footer-top-menu" role="menu">
                     <li class="footer-top-menu-item" role="menuitem">
-                        <a href="../cabecalho/servicos-ti.html" class="footer-top-menu-link">Serviços de TI</a>
+                        <a href="views/cabecalho/servicos-ti.html" class="footer-top-menu-link">Serviços de TI</a>
                     </li>
                     <li class="footer-top-menu-item footer-top-menu-item-active" role="menuitem">
-                        <a href="../cabecalho/desenvolvimento-web.html" class="footer-top-menu-link">Desenvolvimento Web</a>
+                        <a href="views/cabecalho/desenvolvimento-web.html" class="footer-top-menu-link">Desenvolvimento Web</a>
                     </li>
                     <li class="footer-top-menu-item" role="menuitem">
-                        <a href="../cabecalho/seo.html" class="footer-top-menu-link">SEO</a>
+                        <a href="views/cabecalho/seo.html" class="footer-top-menu-link">SEO</a>
                     </li>
                     <li class="footer-top-menu-item" role="menuitem">
-                        <a href="../cabecalho/uiux.html" class="footer-top-menu-link">UI/UX</a>
+                        <a href="views/cabecalho/uiux.html" class="footer-top-menu-link">UI/UX</a>
                     </li>
                 </ul>
             </div>
             <div id="footer-buttons-container">
-                <a href="../cabecalho/projetos.html" class="footer-button" role="button">Veja nossos Projetos</a>
+                <a href="views/cabecalho/projetos.html" class="footer-button" role="button">Veja nossos Projetos</a>
             </div>
         </section>
     
@@ -280,22 +598,22 @@
                 </address>
                 
                 <h1> Nosso Newsletter</h1>
-                <a href="#" class="footer-button" role="button">Inscreva-se</a>
+                <a href="../views/newsletter/newsletter.html" class="footer-button" role="button">Inscreva-se</a>
             </div>
             <div class="footer-columns">
                 <h1>Visão Geral</h1>
                 <ul class="footer-column-menu" role="menu">
                     <li class="footer-column-menu-item" role="menuitem">
-                        <a href="../cabecalho/servicos-ti.html" class="footer-column-menu-item-link">Serviços </a>
+                        <a href="../views/visao-geral/servicos.html" class="footer-column-menu-item-link">Serviços </a>
                     </li>
                     <li class="footer-column-menu-item" role="menuitem">
-                        <a href="../visao-geral/precos.html" class="footer-column-menu-item-link">Preços</a>
+                        <a href="../views/visao-geral/precos.html" class="footer-column-menu-item-link">Preços</a>
                     </li>
                     <li class="footer-column-menu-item" role="menuitem">
-                        <a href="../visao-geral/portfolio.html" class="footer-column-menu-item-link">Portfólio</a>
+                        <a href="../views/visao-geral/portfolio.html" class="footer-column-menu-item-link">Portfólio</a>
                     </li>
                     <li class="footer-column-menu-item" role="menuitem">
-                        <a href="../visao-geral/noticias.html" class="footer-column-menu-item-link">Notícias</a>
+                        <a href="../views/visao-geral/noticias.html" class="footer-column-menu-item-link">Notícias</a>
                     </li>
                 </ul>
             </div>
@@ -303,19 +621,19 @@
                 <h1>Recursos</h1>
                 <ul class="footer-column-menu" role="menu">
                     <li class="footer-column-menu-item" role="menuitem">
-                        <a href="../recursos/faq.html" class="footer-column-menu-item-link">FAQ</a>
+                        <a href="../views/recursos/faq.html" class="footer-column-menu-item-link">FAQ</a>
                     </li>
                     <li class="footer-column-menu-item" role="menuitem">
-                        <a href="../recursos/midia.html" class="footer-column-menu-item-link">Mídia</a>
+                        <a href="../views/recursos/midia.html" class="footer-column-menu-item-link">Mídia</a>
                     </li>
                     <li class="footer-column-menu-item" role="menuitem">
-                        <a href="../recursos/guias.html" class="footer-column-menu-item-link">Guias</a>
+                        <a href="../views/recursos/guias.html" class="footer-column-menu-item-link">Guias</a>
                     </li>
                     <li class="footer-column-menu-item" role="menuitem">
                         <a href="../recursos/recursos-gratuitos.html" class="footer-column-menu-item-link">Recursos Gratuitos</a>
                     </li>
                     <li class="footer-column-menu-item" role="menuitem">
-                        <a href="../recursos/depoimentos.html" class="footer-column-menu-item-link">Depoimentos</a>
+                        <a href="../views/recursos/depoimentos.html" class="footer-column-menu-item-link">Depoimentos</a>
                     </li>
                 </ul>
             </div>
@@ -323,23 +641,46 @@
                 <h1>Informações</h1>
                 <ul class="footer-column-menu" role="menu">
                     <li class="footer-column-menu-item" role="menuitem">
-                        <a href="../informacoes/sobre-nos.html" class="footer-column-menu-item-link">Sobre Nós</a>
+                        <a href="../views/informacoes/sobre-nos.html" class="footer-column-menu-item-link">Sobre Nós</a>
                     </li>
                     <li class="footer-column-menu-item" role="menuitem">
-                        <a href="../informacoes/termos-de-uso.html" class="footer-column-menu-item-link">Termos de Uso</a>
+                        <a href="../views/informacoes/termos-de-uso.html" class="footer-column-menu-item-link">Termos de Uso</a>
                     </li>
                     <li class="footer-column-menu-item">
-                        <a href="../informacoes/informacoes-legais.html" class="footer-column-menu-item-link" role="menuitem">Informações Legais</a>
+                        <a href="../views/informacoes/informacoes-legais.html" class="footer-column-menu-item-link" role="menuitem">Informações Legais</a>
                     </li>
                     <li class="footer-column-menu-item" role="menuitem">
-                        <a href="../informacoes/mensagens-para-nos.html" class="footer-column-menu-item-link">Mensagem para Nós</a>
+                        <a href="../views/informacoes/mensagens-para-nos.html" class="footer-column-menu-item-link">Mensagem para Nós</a>
                     </li>
                     <li class="footer-column-menu-item" role="menuitem">
-                        <a href="../informacoes/feedback.html" class="footer-column-menu-item-link">Deixe um Feedback</a>
+                        <a href="../views/informacoes/feedback.html" class="footer-column-menu-item-link">Deixe um Feedback</a>
                     </li>
                 </ul>
             </div>
         </section>
+        
+        <section class="horizontal-footer-section" id="footer-bottom-section">
+            <div id="footer-copyright-info">
+                &copy; WPMT Web Developer . 2024. Todos os direitos reservados.
+            </div>
+            <div id="footer-social-buttons">
+                <img src="https://img.icons8.com/ios-filled/25/999999/facebook--v1.png"/>
+                <img src="https://img.icons8.com/ios-filled/25/999999/telegram-app.png"/>
+                <img src="https://img.icons8.com/ios-filled/25/999999/pinterest--v1.png"/>
+                <img src="https://img.icons8.com/ios-filled/25/999999/instagram--v1.png"/>
+                <img src="https://img.icons8.com/ios-filled/25/999999/tiktok.png"/> 
+            </div>
+        </section>
+    
+ 
+    <script src="js/script.js" defer></script>
+    <script src="js/header.js" defer></script>  
+    <script src="js/background.js" defer></script>
+    <script src="js/scroll.js" defer></script>
+   
+</body>
+</html>
+
         
         <section class="horizontal-footer-section" id="footer-bottom-section">
             <div id="footer-copyright-info">
